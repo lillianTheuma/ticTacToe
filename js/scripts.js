@@ -3,9 +3,7 @@ function Player(mark, turn) {
   this.turn = turn
 }
 
-function Space(x, y) {
-  this.xCoord = x,
-  this.yCoord = y,
+function Space() {
   this.owningPlayer = new Player('',0)
 }
 
@@ -44,28 +42,40 @@ Game.prototype.round = function(x,y) {
     this.evenTurn= true;
     //Player 1s turn!
   }
-  this.board.grid[x][y].markSpace(player);
+    this.board.grid[x][y].markSpace(player);
   console.log("turn "+(this.turn+1)+" is complete. "+player.mark+" played "+x+","+y+"!");
-
-
+  this.winCheck();
 
 
   this.turn++;
 }
 
 Game.prototype.winCheck = function() {
-  for (var x=0; x < 3; x++){
-    for (var y=0; y < 3; y++){
-      if ((this.board.grid[0][y].owningPlayer.turn) == (this.board.grid[1][y].owningPlayer.turn) == (this.board.grid[2][y].owningPlayer.turn)) {
+  for(var x=0; x < 3; x++) {
+    for(var y=0; y < 3; y++) {
+      if ((this.board.grid[0][y].owningPlayer) == (this.board.grid[1][y].owningPlayer) && (this.board.grid[1][y].owningPlayer) == (this.board.grid[2][y].owningPlayer)) {
         console.log("It won, all Y are equal. "+this.board.grid[x][0].owningPlayer.mark+" is the winner!");
         return this.board.grid[x][0].owningPlayer;
       }
     }
-    if ((this.board.grid[x][0].owningPlayer.turn) == (this.board.grid[x][1].owningPlayer.turn) == (this.board.grid[x][2].owningPlayer.turn)) {
+    if (((this.board.grid[x][0].owningPlayer) == (this.board.grid[x][1].owningPlayer)) && ((this.board.grid[x][1].owningPlayer) == (this.board.grid[x][2].owningPlayer))) {
       console.log("It won, all X are equal. "+this.board.grid[x][0].owningPlayer.mark+" is the winner!");
       return this.board.grid[x][0].owningPlayer;
     }
   }
+  if (((this.board.grid[0][0].owningPlayer) == (this.board.grid[1][1].owningPlayer)) && ((this.board.grid[1][1].owningPlayer) == ((this.board.grid[2][2].owningPlayer)))) {
+    console.log("Diagonal win, victory is mine! Or yours. But I'm assuming I won this round. +1 to me.");
+    return this.board.grid[1][1].owningPlayer;
+  } else if(((this.board.grid[0][2].owningPlayer) == (this.board.grid[1][1].owningPlayer)) && ((this.board.grid[1][1].owningPlayer) == ((this.board.grid[2][0].owningPlayer)))){
+    console.log("ITS A DIAGINAL I CAN'T SPELL, GET OFF MY BACK FUTURE ME!");
+    return this.board.grid[1][1].owningPlayer;
+  }
+  return false;
+}
+Game.prototype.reset = function() {
+  this.board = new Board();
+  this.board.populateBoard();
+  this.turn = 0;
 }
 
 var disboard = new Board();
@@ -73,6 +83,13 @@ var playerA = new Player("X",0);
 var playerB = new Player("O",1);
 var theGame = new Game(playerA, playerB, disboard);
 theGame.board.populateBoard();
-theGame.round(0,0);
-theGame.round(0,1);
-theGame.round(0,2);
+
+$(document).ready(function() {
+  $(".click").click(function(event) {
+    var coord = $(this).children().attr('id');
+    var x = coord[0];
+    var y = coord[1];
+    theGame.round(x,y);
+    $(this).children().text(theGame.board.grid[x][y].owningPlayer.mark);
+  })
+});
