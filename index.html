@@ -1,84 +1,116 @@
 
+
 </body>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
   <script src="js/scripts.js"></script>
   <meta charset="utf-8">
   <title>Tic Tac Toe</title>
 </head>
 <body>
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="media/happy.gif" alt="Thumbs up gif">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Yadda Yadda</a>
+      </li> <!-- class = nav-item -->
+      <li class="nav-item">
+        <a class="nav-link" href="https://epicenter.epicodus.com">Go to <em>Epicodus</em></a>
+      </li> <!-- class = nav-item -->
+      <li class="nav-item">
+        <a class="nav-link" id="dark" onClick="dark()">Potato!</a>
+      </li>
+      <li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            A dropdown that goes to random places on the Internet!
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Button one!</a>
+            <a class="dropdown-item" href="https://www.xkcd.com">Button Two!</a>
+            <a class="dropdown-item" href="https://upload.wikimedia.org/wikipedia/commons/a/ab/Patates.jpg">Button Three! So many!</a>
+          </div>
+        </div> <!-- class = dropdown -->
+      </li>
+    </ul> <!-- class = navbar-nav -->
+  </nav> <!-- id = navbar, class = navbar navbar-expand-lg navbar-light bg-light -->
   <div class="container">
+    <div class="jumbotron">
+      <h2 class="card-text">Tic Tac Toe</h2>
+    </div>
     <div class="card-group">
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info bg-info"></div>
         <div class="card-body click">
-          <h2 id="00"></h2>
+          <h2 class="card-text" id="00"></h2>
         </div><!-- class = card-body click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info"></div>
         <div class="card-body click">
-          <h2 id="10"></h2>
+          <h2 class="card-text" id="10"></h2>
         </div><!-- class = card-body click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info"></div>
         <div class="card-body click">
-          <h2 id="20"></h2>
+          <h2 class="card-text" id="20"></h2>
         </div><!-- class = card-body click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
     </div>
     <div class="card-group">
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info"></div>
         <div class="card-body click">
-          <h2 id="01"></h2>
+          <h2 class="card-text" id="01"></h2>
         </div><!-- class = card-body click click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info"></div>
         <div class="card-body click">
-          <h2 id="11"></h2>
+          <h2 class="card-text" id="11"></h2>
         </div><!-- class = card-body click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info"></div>
         <div class="card-body click">
-          <h2 id="21"></h2>
+          <h2 class="card-text" id="21"></h2>
         </div><!-- class = card-body click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
     </div>
     <div class="card-group">
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info"></div>
         <div class="card-body click">
-          <h2 id="02"></h2>
+          <h2 class="card-text" id="02"></h2>
         </div><!-- class = card-body click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info"></div>
         <div class="card-body click">
-          <h2 id="12"></h2>
+          <h2 class="card-text" id="12"></h2>
         </div><!-- class = card-body click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header bg-info"></div>
         <div class="card-body click">
-          <h2 id="22"></h2>
+          <h2 class="card-text" id="22"></h2>
         </div><!-- class = card-body click -->
-        <div class="card-footer"></div>
+        <div class="card-footer bg-info"></div>
       </div> <!-- class = card -->
     </div>
   </div> <!-- class = card-group -->

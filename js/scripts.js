@@ -84,6 +84,8 @@ var playerB = new Player("O",1);
 var theGame = new Game(playerA, playerB, disboard);
 theGame.board.populateBoard();
 
+// Front End Logic Goes Here------
+
 $(document).ready(function() {
   $(".click").click(function(event) {
     var coord = $(this).children().attr('id');

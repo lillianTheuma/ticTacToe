@@ -1,0 +1,52 @@
+body {
+  background-color: #b6c5e0;
+}
+
+.card {
+  border: 2px solid #4b5569;
+}
+
+.card-body {
+  padding-top: 80px;
+  padding-bottom: 70px;
+  text-align: center;
+  font-size: 60px !important;
+}
+
+.card h2 {
+    font-size: 60px !important;
+}
+
+.card-body {
+  background-color: #f8f9fa;
+}
+
+.card-header {
+ background-color: #8ef1fa !important;
+ padding: 0.55rem 1.15rem;
+}
+
+.card-footer {
+  background-color: #4799a1;
+  padding: 0.55rem 1.15rem;
+}
+
+.card-text {
+  color: #4b5569;
+}
+
+.container {
+  font-family: 'Carter One', cursive;
+  user-select: none;
+}
+
+.jumbotron {
+  margin-top: 100px;
+  background-color: #f8f9fa !important;
+}
+
+
+.jumbotron h2 {
+  text-align: center;
+  color: #4b5569;
+}
