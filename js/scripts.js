@@ -4,7 +4,8 @@ function Player(mark, turn) {
 }
 
 function Space() {
-  this.owningPlayer = new Player('',0)
+  this.owningPlayer = new Player('',0),
+  this.turn
 }
 
 Space.prototype.markSpace = function(player){
@@ -19,7 +20,7 @@ Board.prototype.populateBoard = function(){
   console.log("Populating board! Please wait!");
   for (var i=0; i<3; i++){
     for (var y=0; y<3; y++){
-      this.grid[y].push(new Space(i,y));
+      this.grid[y].push(new Space());
     }
   }
 }
@@ -28,8 +29,9 @@ function Game(player0, player1, board) {
   this.player0 = player0,
   this.player1 = player1,
   this.board = board,
-  this.evenTurn = true;
+  this.evenTurn = true
   this.turn = 0
+  this.plays = []
 }
 
 Game.prototype.round = function(x,y) {
@@ -42,7 +44,8 @@ Game.prototype.round = function(x,y) {
     this.evenTurn= true;
     //Player 1s turn!
   }
-    this.board.grid[x][y].markSpace(player);
+  this.board.grid[x][y].markSpace(player);
+  this.plays.push([x,y]);
   console.log("turn "+(this.turn+1)+" is complete. "+player.mark+" played "+x+","+y+"!");
   this.winCheck();
 
@@ -72,6 +75,9 @@ Game.prototype.winCheck = function() {
   }
   return false;
 }
+
+
+
 Game.prototype.reset = function() {
   this.board = new Board();
   this.board.populateBoard();
@@ -93,5 +99,6 @@ $(document).ready(function() {
     var y = coord[1];
     theGame.round(x,y);
     $(this).children().text(theGame.board.grid[x][y].owningPlayer.mark);
+
   })
 });
